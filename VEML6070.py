@@ -39,8 +39,9 @@
 # Guía de estilos aplicada: PEP8
 
 # #           Descripción           # #
+# Clase para obtener datos y modelo de datos para DB con el sensor veml6070
+# Sensor rayos UV
 
-# VEML6070 Driver Example Code
 import datetime
 import busio
 import board
@@ -52,11 +53,11 @@ class VEML6070(AbstractModel):
     uv = ''
 
     def __init__(self):
-        with busio.I2C(board.SCL, board.SDA) as i2c:
-            self.uv = adafruit_veml6070.VEML6070(i2c)
-            # Alternative constructors with parameters
-            # self.uv = adafruit_veml6070.VEML6070(i2c, 'VEML6070_1_T')
-            # self.uv = adafruit_veml6070.VEML6070(i2c, 'VEML6070_HALF_T', True)
+        i2c = busio.I2C(board.SCL, board.SDA)
+        self.uv = adafruit_veml6070.VEML6070(i2c)
+        # Alternative constructors with parameters
+        # uv = adafruit_veml6070.VEML6070(i2c, 'VEML6070_1_T')
+        # uv = adafruit_veml6070.VEML6070(i2c, 'VEML6070_HALF_T', True)
 
     def read_uv(self):
         """
