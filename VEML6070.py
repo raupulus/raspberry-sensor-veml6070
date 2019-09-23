@@ -90,7 +90,7 @@ class VEML6070(AbstractModel):
             'risk_level': {
                 'type': 'String',
                 'params': {
-                    32,
+                    'length': 32,
                 },
                 'others': None,
             },
